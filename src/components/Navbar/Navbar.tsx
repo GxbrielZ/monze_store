@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { menuItems, mainMenuItems } from '../../data/menuData';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [hoveredMenu, setHoveredMenu] = useState('');
+    const [hoveredMenu, setHoveredMenu] = useState<string>('');
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -21,7 +22,7 @@ const Navbar: React.FC = () => {
                     </Link>
                 </div>
                 <div className='hidden md:flex flex-grow justify-center space-x-4'>
-                    {['KOBIETA', 'MĘŻCZYZNA', 'DZIECKO', 'AKCESORIA', 'OZDOBY'].map((menu) => (
+                    {mainMenuItems.map((menu) => (
                         <div
                             key={menu}
                             className='relative'
@@ -55,11 +56,11 @@ const Navbar: React.FC = () => {
                 </div>
             </div>
             {isOpen && (
-                <div className="md:hidden bg-gray-900 text-white px-4 py-2">
-                    {['KOBIETA', 'MĘŻCZYZNA', 'DZIECKO', 'BASIC', 'WYPRZEDAŻ'].map((menu) => (
-                        <div key={menu} className="py-2">
+                <div className="md:hidden bg-gray-950 text-white px-4 py-2">
+                    {mainMenuItems.map((menu) => (
+                        <div key={menu} className='py-2'>
                             <Link
-                                to={`/${menu.toLowerCase()}`} className="block"
+                                to={`/${menu.toLowerCase()}`} className='block'
                             >
                                 {menu}
                             </Link>
@@ -67,65 +68,21 @@ const Navbar: React.FC = () => {
                     ))}
                 </div>
             )}
-            {hoveredMenu && (
+            {hoveredMenu && menuItems[hoveredMenu] && (
                 <div className='absolute w-full bg-white text-black shadow-lg z-10'>
                     <div className='container mx-auto px-4 py-4 flex justify-between'>
-                        <div>
-                            <h3 className='font-bold pb-2'>ODZIEŻ</h3>
-                            <ul>
-                                <li>Bluzki</li>
-                                <li>Bluzy</li>
-                                <li>Kamizelki</li>
-                                <li>Koszule</li>
-                                <li>Koszulki</li>
-                                <li>Kurtki/Płaszcze</li>
-                                <li>Marynarki</li>
-                                <li>Polo</li>
-                                <li>Spódnice</li>
-                                <li>Sukienki</li>
-                                <li>Swetry</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className='font-bold pb-2'>SPODNIE</h3>
-                            <ul>
-                                <li>Jeansy</li>
-                                <li>Spodnie dresowe</li>
-                                <li>Spodnie sztruksowe</li>
-                                <li>Szorty</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className='font-bold pb-2'>OBUWIE</h3>
-                            <ul>
-                                <li>Botki</li>
-                                <li>Kapcie</li>
-                                <li>Klapki</li>
-                                <li>Półbuty</li>
-                                <li>Trampki</li>
-                                <li>Sandały</li>
-                                <li>Sneakersy</li>
-                                <li>Śniegowce</li>
-                                <li>Trapery</li>
-                                <li>Trekkingi</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className='font-bold pb-2'>DODATKI</h3>
-                            <ul>
-                                <li>Akcesoria</li>
-                                <li>Bielizna</li>
-                                <li>Czapki/Kapelusze</li>
-                                <li>Kosmetyki</li>
-                                <li>Okulary</li>
-                                <li>Paski</li>
-                                <li>Portfele</li>
-                                <li>Rękawiczki</li>
-                                <li>Skarpetki</li>
-                                <li>Szaliki/Apaszki</li>
-                                <li>Torby/Plecaki</li>
-                            </ul>
-                        </div>
+                        {Object.keys(menuItems[hoveredMenu]).map((category) => (
+                            <div key={category}>
+                                <h3 className='font-bold pb-2' >
+                                    {category}
+                                </h3>
+                                <ul>
+                                    {menuItems[hoveredMenu][category].map((item: string) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
                     </div>
                 </div>
             )}
