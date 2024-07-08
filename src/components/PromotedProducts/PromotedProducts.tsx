@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { NextArrow, PrevArrow } from '../Shared/CustomArrows';
 import Product1 from '../../assets/images/products/Product1.jpg';
 import Product2 from '../../assets/images/products/Product2.jpg';
 import Product3 from '../../assets/images/products/Product3.jpg';
@@ -69,6 +70,8 @@ const PromotedProducts: React.FC = () => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
           {
             breakpoint: 1024,
@@ -94,7 +97,7 @@ const PromotedProducts: React.FC = () => {
             }
           }
         ]
-      };
+    };
 
     return (
         <div className='container mx-auto py-8'>
