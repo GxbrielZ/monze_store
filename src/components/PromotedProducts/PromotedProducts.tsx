@@ -28,7 +28,7 @@ const products: Product[] = [
     {
         id: 2,
         image: Product2,
-        title: 'Białe spodnie',
+        title: 'Białe ogrodniczki',
         price: '100 PLN',
     },
     {
@@ -65,11 +65,12 @@ const products: Product[] = [
 
 const PromotedProducts: React.FC = () => {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
+        initialSlide: 0,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
@@ -79,7 +80,7 @@ const PromotedProducts: React.FC = () => {
               slidesToShow: 3,
               slidesToScroll: 1,
               infinite: true,
-              dots: true
+              dots: false,
             }
           },
           {
@@ -100,18 +101,20 @@ const PromotedProducts: React.FC = () => {
     };
 
     return (
-        <div className='container mx-auto py-8'>
-            <h2 className='text-2xl font-bold mb-4'>
-                Polecane Produkty
-            </h2>
+        <div className='mx-auto px-8'>
+            <div className='p-6'>
+                <h2 className='text-2xl font-bold'>
+                    Polecane Produkty
+                </h2>
+            </div>
             <Slider {...settings}>
                 {products.map(product => (
                     <div key={product.id} className='p-2'>
-                        <div className='bg-white p-4 rounded-lg shadow-lg'>
+                        <div className='rounded-lg p-4 shadow'>
                             <img
                                 src={product.image}
                                 alt={product.title}
-                                className='h-48 w-full object-cover mb-4 rounded-lg'
+                                className='h-60 w-full object-cover mb-4 rounded'
                             />
                             <h3 className='text-lg font-bold'>
                                 {product.title}
