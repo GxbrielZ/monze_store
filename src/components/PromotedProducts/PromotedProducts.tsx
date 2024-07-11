@@ -101,22 +101,22 @@ const PromotedProducts: React.FC = () => {
     };
 
     return (
-        <div className='mx-auto px-8'>
-            <div className='p-6'>
+        <div className='mx-auto px-8 font-domine'>
+            <div className='p-6 flex justify-between'>
                 <h2 className='text-2xl font-bold'>
-                    Polecane Produkty
+                    Dzisiejsza Selekcja
                 </h2>
             </div>
             <Slider {...settings}>
                 {products.map(product => (
-                    <div key={product.id} className='p-2'>
+                    <div key={product.id} className='px-2'>
                         <div className='rounded-lg p-4 shadow'>
                             <img
                                 src={product.image}
                                 alt={product.title}
                                 className='h-60 w-full object-cover mb-4 rounded'
                             />
-                            <h3 className='text-lg font-bold'>
+                            <h3 className='text-lg'>
                                 {product.title}
                             </h3>
                             <p className='text-red-500'>
