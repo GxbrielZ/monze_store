@@ -9,8 +9,8 @@ const Footer: React.FC = () => {
         <div className='container mx-auto border-b border-gray-800 pb-2'>
             <h2 className='font-cookie text-5xl font-bold pl-3'>MonZe</h2>
         </div>
-        <div className='container mx-auto flex justify-between p-5 text-sm border-b border-gray-800'>
-            <div>
+        <div className='container mx-auto flex flex-col md:flex-row justify-between p-5 text-sm border-b border-gray-800'>
+            <div className='mb-5 md:mb-0'>
                 <h2 className='font-bold mb-2'>O NAS</h2>
                 <ul className='space-y-1'>
                     <li>O firmie MonZe</li>
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                     <li>Opinie klientów</li>
                 </ul>
             </div>
-            <div>
+            <div className='mb-5 md:mb-0'>
                 <h2 className='font-bold mb-2'>METODY PŁATNOŚCI</h2>
                 <ul className='space-y-1'>
                     <li>Płatności Online</li>
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                     <li>Za Pobraniem</li>
                 </ul>
             </div>
-            <div>
+            <div className='mb-5 md:mb-0'>
                 <h2 className='font-bold mb-2'>OBSŁUGA KLIENTA</h2>
                 <ul className='space-y-1'>
                     <li>Kontakt</li>
