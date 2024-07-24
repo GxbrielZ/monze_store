@@ -1,93 +1,82 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import menuData from '../../data/menuData';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { menuItems, mainMenuItems } from '../../data/menuData';
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [hoveredMenu, setHoveredMenu] = useState<string>('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
-    return (
-        <nav className='bg-gray-950 text-white shadow-md'>
-            <div className='mx-auto px-4 py-2 flex justify-between items-center'>
-                <div className='flex items-center'>
-                    <Link to='/' className='text-2xl font-bold'>
-                        MonZe
-                    </Link>
-                </div>
-                <div className='hidden md:flex flex-grow justify-center space-x-4'>
-                    {mainMenuItems.map((menu) => (
-                        <div
-                            key={menu}
-                            className='relative'
-                            onMouseEnter={() => setHoveredMenu(menu)}
-                            onMouseLeave={() => setHoveredMenu('')}
-                        >
-                            <Link
-                                to={`/${menu.toLowerCase()}`}
-                                className='px-4 py-2'
-                            >
-                                {menu}
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-                <div className='flex items-center space-x-4'>
-                    <button className='relative text-xl'>
-                        <FaHeart />
-                    </button>
-                    <button className='relative text-2xl'>
-                        <MdOutlineShoppingCart />
-                    </button>
-                    <div className='md:hidden'>
-                        <button
-                            onClick={toggleMenu}
-                            className='focus:outline-none text-2xl'
-                        >
-                            <HiMenuAlt3 />
-                        </button>
-                    </div>
-                </div>
+  return (
+    <nav className='flex justify-between bg-gray-900 text-white w-screen font-domine'>
+      <div className='px-3 md:px-5 py-3 flex w-full items-center'>
+        <Link to='/' className='font-cookie text-3xl font-bold z-10'>
+          MonZe
+        </Link>
+        <ul className='hidden lg:flex mx-auto lg:space-x-10 xl:space-x-12'>
+          {menuData.map((item, index) => (
+            <li key={index}>
+              <Link to={item.link} className='hover:text-gray-200'>
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className='hidden lg:flex items-center space-x-3 items-center text-xl'>
+          <Link to='/' className='hover:text-red-500'>
+            <FaHeart />
+          </Link>
+          <Link to='/' className='hover:text-gray-200'>
+            <FaShoppingCart />
+          </Link>
+        </div>
+      </div>
+      <div
+        className='lg:hidden flex mr-2 items-center text-2xl cursor-pointer z-10'
+        onClick={toggleMobileMenu}
+      >
+        <HiMenuAlt3 />
+      </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            className='absolute lg:hidden top-0 left-0 w-full bg-gray-900 text-white p-4'
+          >
+            <ul className='space-y-4 pt-14 pb-4'>
+              {menuData.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.link}
+                    className='block border-b pb-2 pl-2'
+                    onClick={toggleMobileMenu}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className='flex items-center justify-end space-x-4 text-xl my-4'>
+              <Link to='/' className='hover:text-red-500'>
+                <FaHeart />
+              </Link>
+              <Link to='/' className='hover:text-gray-200'>
+                <FaShoppingCart />
+              </Link>
             </div>
-            {isOpen && (
-                <div className="md:hidden bg-gray-950 text-white px-4 py-2">
-                    {mainMenuItems.map((menu) => (
-                        <div key={menu} className='py-2'>
-                            <Link
-                                to={`/${menu.toLowerCase()}`} className='block'
-                            >
-                                {menu}
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            )}
-            {hoveredMenu && menuItems[hoveredMenu] && (
-                <div className='absolute w-full bg-white text-black shadow-lg z-10'>
-                    <div className='container mx-auto px-4 py-4 flex justify-between'>
-                        {Object.keys(menuItems[hoveredMenu]).map((category) => (
-                            <div key={category}>
-                                <h3 className='font-bold pb-2' >
-                                    {category}
-                                </h3>
-                                <ul>
-                                    {menuItems[hoveredMenu][category].map((item: string) => (
-                                        <li key={item}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-        </nav>
-    )
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
 };
 
 export default Navbar;
