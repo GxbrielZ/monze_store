@@ -5,28 +5,28 @@ const PromotedAccesories: React.FC = () => {
     const categories = ['BIŻUTERIA', 'TORBY/PLECAKI', 'NAKRYCIA GŁOWY'];
 
     return (
-        <div className='flex justify-center my-2 font-domine'>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-28'>
+        <div className='flex justify-center font-domine px-4 md:px-0'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-12'>
                 {categories.map((category) => (
-                    <div key={category}>
-                        <h2 className='text-xl font-bold mb-6'>
+                    <div key={category} className='px-6 mb-8'>
+                        <h2 className='text-md lg:text-xl font-bold mb-4'>
                             {category}
                         </h2>
                         <div className='space-y-4'>
                             {accesories.filter((accesory) => accesory.category === category).map((accesory) => (
                                 <div
                                     key={accesory.title}
-                                    className='flex items-center space-x-4 pr-4 hover:bg-gray-100 cursor-pointer duration-300'>
+                                    className='flex items-center space-x-2 lg:space-x-4 lg:pr-4 hover:bg-gray-100 cursor-pointer duration-300'>
                                     <img
                                         src={accesory.imageUrl}
                                         alt={accesory.title}
-                                        className='w-20 h-20 object-cover'
+                                        className='w-16 h-16 lg:w-20 lg:h-20 object-cover'
                                     />
-                                    <div>
-                                        <h3 className='text-lg font-semibold'>
+                                    <div className='overflow-hidden whitespace-nowrap'>
+                                        <h3 className='text-sm lg:text-lg font-semibold truncate'>
                                             {accesory.title} 
                                         </h3>
-                                        <p className='text-red-500'>
+                                        <p className='text-sm lg:text-lg text-red-500'>
                                             {accesory.price} PLN
                                         </p>
                                     </div>
