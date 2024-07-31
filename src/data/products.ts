@@ -10,7 +10,7 @@ interface Product {
     id: number,
     image: string;
     title: string;
-    price: string;
+    price: number;
 };
 
 const products: Product[] = [
@@ -18,43 +18,43 @@ const products: Product[] = [
         id: 1,
         image: Product1,
         title: 'Czerwone spodnie w paski',
-        price: '115 PLN',
+        price: 115,
     },
     {
         id: 2,
         image: Product2,
         title: 'Białe ogrodniczki',
-        price: '100 PLN',
+        price: 100,
     },
     {
         id: 3,
         image: Product3,
         title: 'Koszula w kratę',
-        price: '70 PLN',
+        price: 70,
     },
     {
         id: 4,
         image: Product4,
         title: 'Biały t-shirt',
-        price: '55 PLN',
+        price: 55,
     },
     {
         id: 5,
         image: Product5,
         title: 'Czarna bluzka',
-        price: '130 PLN',
+        price: 130,
     },
     {
         id: 6,
         image: Product6,
         title: 'Niebieskie Jeansy',
-        price: '90 PLN',
+        price: 90,
     },
     {
         id: 7,
         image: Product7,
         title: 'Biała koszulka',
-        price: '45 PLN',
+        price: 45,
     },
 ];
 
