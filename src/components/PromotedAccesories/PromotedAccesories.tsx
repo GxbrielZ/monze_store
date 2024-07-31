@@ -5,7 +5,10 @@ const PromotedAccesories: React.FC = () => {
     const categories = ['BIŻUTERIA', 'TORBY/PLECAKI', 'NAKRYCIA GŁOWY'];
 
     return (
-        <div className='flex justify-center font-domine px-4 md:px-0'>
+        <div className='container mx-auto mt-12'>
+            <h1 className='text-2xl font-bold mb-8 pb-2 border-b-4 border-red-600'>
+                POLECANE AKCESORIA
+            </h1>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-12'>
                 {categories.map((category) => (
                     <div key={category} className='px-6 mb-8'>
@@ -26,7 +29,7 @@ const PromotedAccesories: React.FC = () => {
                                         <h3 className='text-sm lg:text-lg font-semibold truncate'>
                                             {accesory.title} 
                                         </h3>
-                                        <p className='text-sm lg:text-lg text-red-500'>
+                                        <p className='text-sm lg:text-lg text-red-600'>
                                             {accesory.price} PLN
                                         </p>
                                     </div>

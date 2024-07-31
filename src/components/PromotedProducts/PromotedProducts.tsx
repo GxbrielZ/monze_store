@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from '../Shared/CustomArrows';
-import TitleBanner from '../Shared/TitleBanner';
 import products from '../../data/products';
 
 const PromotedProducts: React.FC = () => {
@@ -44,23 +43,25 @@ const PromotedProducts: React.FC = () => {
     };
 
     return (
-        <div className='relative'>
-            <TitleBanner />
-            <div className='mx-8 relative z-2 -mt-28'>
+        <div className='container mx-auto'>
+            <h1 className='text-2xl font-bold mb-4 pb-2 border-b-4 border-red-600'>
+                POLECANE PRODUKTY
+            </h1>
+            <div className='relative'>
               <Slider {...settings}>
                   {products.map(product => (
-                      <div key={product.id} className='px-2 py-5'>
-                          <div className='rounded-lg p-4 shadow transition-transform transform hover:scale-105 duration-500 cursor-pointer font-domine'>
+                      <div key={product.id} className='px-2 py-4'>
+                          <div className='rounded-lg p-4 shadow bg-white transition-transform transform hover:scale-105 duration-500 cursor-pointer font-domine'>
                               <img
                                   src={product.image}
                                   alt={product.title}
-                                  className='h-96 w-full object-cover mb-4 rounded'
+                                  className='h-60 lg:h-96 w-full object-cover mb-4 rounded'
                               />
                               <h3 className='text-lg'>
                                   {product.title}
                               </h3>
-                              <p className='text-red-500'>
-                                  {product.price}
+                              <p className='text-red-600'>
+                                {product.price.toFixed(1)} PLN
                               </p>
                           </div>
                       </div>

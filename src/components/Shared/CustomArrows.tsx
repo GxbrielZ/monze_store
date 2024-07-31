@@ -11,7 +11,7 @@ interface ArrowProps {
 export const NextArrow: React.FC<ArrowProps> = ({ style, onClick }) => {
   return (
     <div
-      className={`absolute top-1/2 transform -translate-y-1/2 -right-2 z-10 h-[50px] w-[50px] shadow-md cursor-pointer rounded-full bg-white`}
+      className={`absolute top-1/2 transform -translate-y-1/2 -right-3 z-10 h-[50px] w-[50px] shadow-md cursor-pointer rounded-full bg-white`}
       onClick={onClick}
       style={{ ...style, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
     >
@@ -23,7 +23,7 @@ export const NextArrow: React.FC<ArrowProps> = ({ style, onClick }) => {
 export const PrevArrow: React.FC<ArrowProps> = ({ style, onClick }) => {
   return (
     <div
-      className={`absolute top-1/2 transform -translate-y-1/2 -left-2 z-10 h-[50px] w-[50px] shadow-md cursor-pointer rounded-full bg-white`}
+      className={`absolute top-1/2 transform -translate-y-1/2 -left-3 z-10 h-[50px] w-[50px] shadow-md cursor-pointer rounded-full bg-white`}
       onClick={onClick}
       style={{ ...style, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
     >

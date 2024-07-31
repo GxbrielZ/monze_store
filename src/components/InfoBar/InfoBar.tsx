@@ -6,7 +6,7 @@ import { BsBagHeartFill } from "react-icons/bs";
 
 const InfoBar: React.FC = () => {
   return (
-    <div className='flex flex-wrap justify-around items-center p-4 bg-gray-100 shadow-sm my-8 md:my-16 lg:my-24 text-gray-900'>
+    <div className='flex flex-wrap justify-around items-center p-4 bg-gray-100 shadow-sm mt-24 mb-40 text-gray-900'>
         <div className='flex flex-col items-center p-2 w-full sm:w-1/2 md:w-1/4 mb-4 md:mb-0'>
             <div className='text-5xl'>
                 <MdLocalShipping />
