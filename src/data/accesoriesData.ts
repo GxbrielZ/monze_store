@@ -6,7 +6,7 @@ import Bag2 from '../assets/images/Accesories/Bag2.jpg';
 import Bag3 from '../assets/images/Accesories/Bag3.jpg';
 import Earrings1 from '../assets/images/Accesories/Earrings1.jpg';
 import Ring1 from '../assets/images/Accesories/Ring1.jpg';
-import Necklease1 from '../assets/images/Accesories/Necklease1.jpg';
+import Watch1 from '../assets/images/Accesories/Watch1.jpg';
 
 interface Product {
     category: string;
@@ -32,7 +32,7 @@ const accesories: Product[] = [
       category: 'BIŻUTERIA',
       title: 'Srebrny naszyjnik',
       price: 120.00,
-      imageUrl: Necklease1,
+      imageUrl: Watch1,
     },
     {
       category: 'TORBY/PLECAKI',
