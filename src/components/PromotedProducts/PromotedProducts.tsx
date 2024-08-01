@@ -21,8 +21,6 @@ const PromotedProducts: React.FC = () => {
             settings: {
               slidesToShow: 3,
               slidesToScroll: 1,
-              infinite: true,
-              dots: false,
             }
           },
           {
@@ -43,8 +41,8 @@ const PromotedProducts: React.FC = () => {
     };
 
     return (
-        <div className='container mx-auto'>
-            <h1 className='text-2xl font-bold mb-4 pb-2 border-b-4 border-red-600'>
+        <div className='container mx-auto mt-8 md:mt-24 px-4'>
+            <h1 className='text-2xl font-bold mb-4 pl-2 pb-2 border-b-4 border-red-600'>
                 POLECANE PRODUKTY
             </h1>
             <div className='relative'>
@@ -55,9 +53,9 @@ const PromotedProducts: React.FC = () => {
                               <img
                                   src={product.image}
                                   alt={product.title}
-                                  className='h-60 lg:h-96 w-full object-cover mb-4 rounded'
+                                  className='h-80 lg:h-96 w-full object-cover mb-4 rounded'
                               />
-                              <h3 className='text-lg'>
+                              <h3 className='text-lg truncate'>
                                   {product.title}
                               </h3>
                               <p className='text-red-600'>

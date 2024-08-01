@@ -18,13 +18,13 @@ const Commercial: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-        }, 10000);
+        }, 7000);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className='relative w-full h-96 md:h-[40rem] mt-24'>
+        <div className='relative w-full h-96 md:h-[40rem] mt-12 md:mt-24'>
             <AnimatePresence>
                 <motion.img
                     key={currentImage}

@@ -51,12 +51,12 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, x: -100 }}
             className='absolute lg:hidden top-0 left-0 w-full bg-gray-900 text-white p-4'
           >
-            <ul className='space-y-4 pt-14 pb-4'>
+            <ul className='space-y-6 pt-14 pb-4'>
               {menuData.map((item, index) => (
                 <li key={index}>
                   <Link
                     to={item.link}
-                    className='block border-b pb-2 pl-2'
+                    className='text-center block border-b border-gray-500 pb-2'
                     onClick={toggleMobileMenu}
                   >
                     {item.name}
