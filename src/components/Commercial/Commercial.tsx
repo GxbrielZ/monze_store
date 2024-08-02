@@ -47,7 +47,7 @@ const Commercial: React.FC = () => {
                         transition={{ duration: 1 }}
                         className='absolute'
                     >
-                        <h1 className='text-white text-center mx-2 sm:mx-0 text-4xl md:text-6xl font-bold'>
+                        <h1 className='font-lato text-white text-center mx-2 sm:mx-0 text-4xl md:text-6xl font-bold'>
                             {titles[currentImage]}
                         </h1>
                     </motion.div>
