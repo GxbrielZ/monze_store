@@ -49,13 +49,13 @@ const PromotedProducts: React.FC = () => {
               <Slider {...settings}>
                   {products.map(product => (
                       <div key={product.id} className='px-2 py-4'>
-                          <div className='rounded-lg p-4 shadow bg-white transition-transform transform hover:scale-105 duration-500 cursor-pointer font-domine'>
+                          <div className='rounded-lg p-4 shadow bg-white transition-transform transform hover:scale-105 duration-500 cursor-pointer'>
                               <img
                                   src={product.image}
                                   alt={product.title}
                                   className='h-80 lg:h-96 w-full object-cover mb-4 rounded'
                               />
-                              <h3 className='text-lg truncate'>
+                              <h3 className='text-lg truncate font-semibold'>
                                   {product.title}
                               </h3>
                               <p className='text-red-600'>
