@@ -26,10 +26,10 @@ const PromotedAccesories: React.FC = () => {
                                         className='w-20 md:w-16 h-20 md:h-16 object-cover'
                                     />
                                     <div className='overflow-hidden whitespace-nowrap'>
-                                        <h3 className='text-md lg:text-lg font-bold truncate'>
+                                        <h3 className='text-md lg:text-lg font-semibold truncate'>
                                             {accesory.title} 
                                         </h3>
-                                        <p className='text-md lg:text-lg text-red-600 font-semibold'>
+                                        <p className='text-md text-red-600 font-semibold'>
                                             {accesory.price} PLN
                                         </p>
                                     </div>
