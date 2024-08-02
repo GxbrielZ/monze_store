@@ -11,7 +11,7 @@ const ProductListing: React.FC = () => {
             {products.map(product => (
                 <div key={product.id} className='border p-4 relative hover:bg-gray-100 duration-300 rounded-md'>
                     <img src={product.image} alt={product.title} className='w-full h-96 object-cover mb-2' />
-                    <h2 className="text-lg font-semibold">
+                    <h2 className="text-lg font-semibold truncate">
                         {product.title}
                     </h2>
                     <p className="text-red-600 font-semibold">
