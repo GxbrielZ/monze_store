@@ -9,7 +9,7 @@ const images = [ FanmadeOne, FanmadeTwo, FanmadeThree, FanmadeFour, FanmadeFive 
 
 const FanpageSection: React.FC = () => {
   return (
-    <div className='mx-auto mt-16 md:mt-24'>
+    <div className='mx-auto mt-16 md:mt-32'>
         <h1 className='text-2xl font-bold mb-8 pb-2 mx-4 text-center border-b-4 border-red-600'>
             OBSERWUJ NASZ PROFIL NA INSTAGRAMIE
         </h1>
