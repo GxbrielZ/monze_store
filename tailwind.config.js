@@ -7,6 +7,7 @@ module.exports = {
       fontFamily: {
         cookie: ['"Cookie"', 'cursive'],
         domine: ['"Domine"', 'serif'],
+        lato: ['"Lato"', 'sans-serif'],
       },
     },
   },
