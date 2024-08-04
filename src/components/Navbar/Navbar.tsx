@@ -5,12 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import Cart from '../Cart/Cart';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setCartIsOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleCart = () => {
+    setCartIsOpen(!isCartOpen);
   };
 
   return (
@@ -32,9 +38,12 @@ const Navbar: React.FC = () => {
           <Link to='/' className='hover:text-red-500'>
             <FaHeart />
           </Link>
-          <Link to='/' className='hover:text-gray-200'>
+          <button
+            onClick={toggleCart}
+            className='hover:text-gray-200'
+          >
             <FaShoppingCart />
-          </Link>
+          </button>
         </div>
       </div>
       <div
@@ -68,13 +77,17 @@ const Navbar: React.FC = () => {
               <Link to='/' className='hover:text-red-500'>
                 <FaHeart />
               </Link>
-              <Link to='/' className='hover:text-gray-200'>
+              <button
+                onClick={toggleCart}
+                className='hover:text-gray-200'
+              >
                 <FaShoppingCart />
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <Cart isOpen={isCartOpen} toggleCart={toggleCart} />
     </nav>
   );
 };
