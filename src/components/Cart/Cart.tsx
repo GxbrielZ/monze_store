@@ -31,7 +31,9 @@ const Cart: React.FC<CartProps> = ({ isOpen, toggleCart }) => {
                     </div>
                     <div className='px-4'>
                         {cart.length === 0 ? (
-                            <p className='text-black'>Your cart is empty.</p>
+                            <p className='text-black p-4'>
+                                Twój koszyk jest pusty...
+                            </p>
                         ) : (
                             <ul>
                                 {cart.map(item => (

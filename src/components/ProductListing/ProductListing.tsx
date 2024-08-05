@@ -1,13 +1,15 @@
 import React from 'react';
 import products from '../../data/products';
 import { FaHeartCirclePlus } from "react-icons/fa6";
-//import { FaHeartCircleCheck } from "react-icons/fa6";
+import { FaHeartCircleCheck } from "react-icons/fa6";
 import { BsCartPlusFill } from "react-icons/bs";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { useCart } from '../Cart/CartContext';
+import { useFavs } from '../Favourites/FavsContext';
 
 const ProductListing: React.FC = () => {
     const { cart, addToCart, removeFromCart } = useCart();
+    const { favs, addToFavs, removeFromFavs } = useFavs();
 
     const handleAddToCart = (product: { id: number; image: string; title: string; price: number; }) => {
         if (cart.some(cartItem => cartItem.id === product.id)) {
@@ -15,7 +17,15 @@ const ProductListing: React.FC = () => {
         } else {
           addToCart(product);
         }
-      };
+    };
+
+    const handleAddToFavs = (product: { id: number; image: string; title: string; price: number; }) => {
+        if (favs.some(favsItem => favsItem.id === product.id)) {
+          removeFromFavs(product.id);
+        } else {
+          addToFavs(product);
+        }
+    };
 
     return (
         <div className='container mx-auto mt-8 px-4'>
@@ -36,9 +46,17 @@ const ProductListing: React.FC = () => {
                                     {product.title}
                                 </h2>
                                 <div className='flex gap-2 text-2xl cursor-pointer text-gray-900'>
-                                    <FaHeartCirclePlus
-                                        className='hover:text-red-600 duration-300' 
-                                    />
+                                    {favs.some(favsItem => favsItem.id === product.id) ? (
+                                        <FaHeartCircleCheck
+                                            className='text-red-600'
+                                            onClick={() => handleAddToFavs(product)}
+                                        />
+                                    ) : (
+                                        <FaHeartCirclePlus
+                                            className='hover:text-red-600 duration-300'
+                                            onClick={() => handleAddToFavs(product)}
+                                        />
+                                    )}
                                     {cart.some(cartItem => cartItem.id === product.id) ? (
                                         <BsFillCartCheckFill
                                             className='text-green-600'

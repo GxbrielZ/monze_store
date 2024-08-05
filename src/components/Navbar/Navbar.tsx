@@ -6,10 +6,12 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from '../Cart/Cart';
+import Favs from '../Favourites/Favs';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setCartIsOpen] = useState(false);
+  const [isFavsOpen, setFavsIsOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -17,6 +19,10 @@ const Navbar: React.FC = () => {
 
   const toggleCart = () => {
     setCartIsOpen(!isCartOpen);
+  };
+
+  const toggleFavs = () => {
+    setFavsIsOpen(!isFavsOpen);
   };
 
   return (
@@ -35,9 +41,12 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
         <div className='hidden lg:flex items-center space-x-3 items-center text-xl'>
-          <Link to='/' className='hover:text-red-500'>
+          <button
+            onClick={toggleFavs}
+            className='hover:text-red-500'
+          >
             <FaHeart />
-          </Link>
+          </button>
           <button
             onClick={toggleCart}
             className='hover:text-gray-200'
@@ -74,9 +83,12 @@ const Navbar: React.FC = () => {
               ))}
             </ul>
             <div className='flex items-center justify-end space-x-4 text-xl my-4'>
-              <Link to='/' className='hover:text-red-500'>
+              <button
+                onClick={toggleFavs}
+                className='hover:text-red-500'
+              >
                 <FaHeart />
-              </Link>
+              </button>
               <button
                 onClick={toggleCart}
                 className='hover:text-gray-200'
@@ -88,6 +100,7 @@ const Navbar: React.FC = () => {
         )}
       </AnimatePresence>
       <Cart isOpen={isCartOpen} toggleCart={toggleCart} />
+      <Favs isOpen={isFavsOpen} toggleFavs={toggleFavs} />
     </nav>
   );
 };
